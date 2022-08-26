@@ -79,7 +79,7 @@ const voiceButton = document.querySelector('.set-voice');
 
 const Voices = {
     chisato: new Audio('slbj.mp3'),
-    takina: new Audio('slbj.mp3'),
+    takina: new Audio('lyyh.mp3'),
 
     isMute: true
 };
@@ -364,7 +364,9 @@ const playVoice = () => {
     if (el.classList.contains('chisato')) {
         if (
             // 'nice chin~a~na~go~' 经验值
-            Math.abs(v.r) <= 4
+            //Math.abs(v.r) <= 4
+            //&& Math.abs(v.y) >= 20
+			Math.abs(v.r) <= 4
             && Math.abs(v.y) >= 20
         ) {
             console.log('%cchin~a~na~go~','color:#FED;background-color:#C34;padding:2px 4px;');
@@ -373,8 +375,10 @@ const playVoice = () => {
     } else {
         if (
             // 'nice sakana~' 经验值
-            v.r >= Values.takina.r
-            && (Math.abs(v.y) <= 12 || v.r >= 3 * Math.abs(v.y))
+			Math.abs(v.r) <= 4
+            && Math.abs(v.y) >= 20
+            //v.r >= Values.takina.r
+            //&& (Math.abs(v.y) <= 12 || v.r >= 3 * Math.abs(v.y))
         ) {
             console.log('%csakana~','color:#CCC;background-color:#235;padding:2px 4px;');
             Voices.takina.play();
